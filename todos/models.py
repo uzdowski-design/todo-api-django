@@ -8,10 +8,11 @@ class List(models.Model):
         return self.name
 
 
-class Todo(models.Model):
+class Task(models.Model):
     name = models.CharField(max_length=128)
     done = models.BooleanField(default=False)
-    owner = models.ForeignKey(List, null=True, on_delete=models.CASCADE)
+    parent = models.ForeignKey(
+        List, related_name='children', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

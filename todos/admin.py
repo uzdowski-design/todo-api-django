@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Todo, List
+from .models import Task, List
 
-admin.site.register(Todo)
+admin.site.register(Task)
 admin.site.register(List)

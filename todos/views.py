@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Todo, List
-from .serializers import TodoSerializer, ListSerializer
+from .models import Task, List
+from .serializers import TaskSerializer, ListSerializer
 
 
-class TodoView(viewsets.ModelViewSet):
-    queryset = Todo.objects.all()
-    serializer_class = TodoSerializer
+class TaskView(viewsets.ModelViewSet):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
 
 
 class ListView(viewsets.ModelViewSet):

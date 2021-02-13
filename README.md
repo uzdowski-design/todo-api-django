@@ -45,12 +45,12 @@ pip install -r api/requirements.txt
 This is made with RESTful conventions and has two routes registered.
 #### Lists Route
 ```
-/lists
+/lists/
 ```  
 
 #### Tasks Route
 ```
-/tasks
+/tasks/
 ```  
 <br />
 

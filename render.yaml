@@ -1,11 +1,21 @@
+databases:
+  - name: todoapidb
+    plan: free
+    databaseName: todoapi
+    user: todoapi
+
 services:
   - type: web
     plan: free
-    name: mysite
+    name: todoapi
     runtime: python
     buildCommand: './build.sh'
-    startCommand: 'python -m gunicorn api.asgi:application -k uvicorn.workers.UvicornWorker'
+    startCommand: 'python -m gunicorn todoapi.asgi:application -k uvicorn.workers.UvicornWorker'
     envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: todoapidb
+          property: connectionString
       - key: SECRET_KEY
         generateValue: true
       - key: WEB_CONCURRENCY
